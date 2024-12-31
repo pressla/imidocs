@@ -10,9 +10,9 @@ As the number of microservices grows, the manual process of upgrading servicesâ€
 ### Solution
 The Kubernetes Deployment resource abstracts the complexities of managing upgrades and rollbacks of container groups. By defining the desired state, Kubernetes performs necessary actions to ensure the system conforms to that state. Deployment strategies supported include:
 
-!!! note Rolling Deployment
+/// admonition | Rolling Deployment
     The default strategy that updates Pods incrementally to ensure zero downtime. It creates new Pods while progressively replacing old ones, adhering to parameters like `maxSurge` (temporary additional Pods) and `maxUnavailable` (maximum Pods unavailable during updates).
-
+///
 !!! example kubectl rollout Commands
     | **Command**                | **Description**                                                                                         |
     |----------------------------|---------------------------------------------------------------------------------------------------------|
