@@ -8,9 +8,12 @@ Welcome to the official documentation hub for Imitrix. This documentation serves
 - [Kubernetes Cheat Sheet](kubecheat.md) - Quick reference guide for common Kubernetes commands and operations
 - [Kind Kubernetes](kube-kind.md) - Guide for working with Kind (Kubernetes in Docker)
 - [RKE2 Deployment](rke2-deployment.md) - Instructions for deploying RKE2 clusters
+- [Kubernetes Deployment Patterns](kube-deployment-pattern-rh.md) - Guide to deployment strategies and patterns in Kubernetes
 
 ### Development Tools
 - [Vim Commands](vim-commands.md) - Reference guide for Vim text editor commands
+- [MkDocs Cheat Sheet](mkdocscheat.md) - Quick reference for MkDocs documentation system
+- [Streamlit Guide](streamlit-guide.md) - Guide for working with Streamlit applications
 
 ## Documentation Features
 
