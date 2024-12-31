@@ -1,4 +1,4 @@
-# Kubernetes Deployment Patterns 
+# Kubernetes Deployment Patterns[^1] 
 [^1]: Kubernetes Patterns Reusable Elements for Designing
 Cloud Native Applications
 ##  Declarative Deployment
@@ -9,8 +9,17 @@ As the number of microservices grows, the manual process of upgrading servicesâ€
 ### Solution
 The Kubernetes Deployment resource abstracts the complexities of managing upgrades and rollbacks of container groups. By defining the desired state, Kubernetes performs necessary actions to ensure the system conforms to that state. Deployment strategies supported include:
 
-!!! note annotate "Rolling Deployment"
+!!! note Rolling Deployment
     The default strategy that updates Pods incrementally to ensure zero downtime. It creates new Pods while progressively replacing old ones, adhering to parameters like `maxSurge` (temporary additional Pods) and `maxUnavailable` (maximum Pods unavailable during updates).
+
+!!! example kubectl rollout Commands
+    | **Command**                | **Description**                                                                                         |
+    |----------------------------|---------------------------------------------------------------------------------------------------------|
+    | `kubectl rollout status`   | Shows the current status of a Deploymentâ€™s rollout.                                                    |
+    | `kubectl rollout pause`    | Pauses a rolling update so that multiple changes can be applied to a Deployment without retriggering another rollout. |
+    | `kubectl rollout resume`   | Resumes a previously paused rollout.                                                                   |
+    | `kubectl rollout undo`     | Performs a rollback to a previous revision of a Deployment. A rollback is helpful in case of an error during the update. |
+
 
 *Example configuration:*
 
