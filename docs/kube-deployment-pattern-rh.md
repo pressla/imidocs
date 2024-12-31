@@ -1,4 +1,5 @@
-# Kubernetes Deployment Patterns[^1] 
+# Kubernetes Deployment Patterns
+foot [^1] 
 [^1]: Kubernetes Patterns Reusable Elements for Designing
 Cloud Native Applications
 ##  Declarative Deployment

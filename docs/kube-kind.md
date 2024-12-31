@@ -72,7 +72,7 @@ kind --version
 
 Install kubectl using the official Kubernetes repository:
 
-```bash copy
+```bash
 # Add Kubernetes repository
 sudo zypper addrepo --refresh https://download.opensuse.org/repositories/containers:/kubetools/15.5/containers:kubetools.repo
 
@@ -87,7 +87,7 @@ kubectl version --client
 
 Install Helm using the openSUSE package manager:
 
-```bash copy
+```bash
 # Add Helm repository
 sudo zypper addrepo https://download.opensuse.org/repositories/home:tlusk:kubectl/15.6/home:tlusk:kubectl.repo
 
@@ -116,12 +116,12 @@ nodes:
 ```
 
 2. Create the cluster:
-```bash copy
+```bash
 kind create cluster --name monitoring --config kind-config.yaml
 ```
 
 3. Verify cluster is running:
-```bash copy
+```bash
 kubectl cluster-info
 ```
 
@@ -130,19 +130,19 @@ kubectl cluster-info
 We'll set up a complete monitoring solution with Prometheus, Grafana, and Loki using Helm charts.
 
 1. Create monitoring namespace:
-```bash copy
+```bash 
 kubectl create namespace monitoring
 ```
 
 2. Add required Helm repositories:
-```bash copy
+```bash 
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 ```
 
 3. Install Prometheus stack:
-```bash copy
+```bash 
 helm install prometheus prometheus-community/kube-prometheus-stack \
   --namespace monitoring \
   --set grafana.enabled=true \
@@ -159,7 +159,7 @@ EOF
 ```
 
 4. Install Loki stack:
-```bash copy
+```bash 
 helm install loki grafana/loki-stack \
   --namespace monitoring \
   --set grafana.enabled=false \
@@ -168,7 +168,7 @@ helm install loki grafana/loki-stack \
 ```
 
 5. Verify installations:
-```bash copy
+```bash 
 kubectl get pods -n monitoring
 ```
 
@@ -252,14 +252,14 @@ spec:
 ```
 
 Apply the configuration:
-```bash copy
+```bash 
 kubectl apply -f nginx-proxy.yaml
 ```
 
 ## Accessing the Dashboards
 
 Get the Grafana admin password (if you didn't set it in the values):
-```bash copy
+```bash 
 kubectl get secret -n monitoring prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
 ```
 
@@ -279,51 +279,51 @@ Configure Loki as a data source in Grafana:
 ## Cleaning Up
 
 To delete the Kind cluster:
-```bash copy
+```bash 
 kind delete cluster --name monitoring
 ```
 
 ## Next Steps
 
 With this setup, you now have:
-- A local multi-node Kubernetes cluster
-- The Kubernetes CLI (kubectl) for cluster management
-- Helm for package management
-- A complete monitoring stack with Prometheus and Grafana
+  - A local multi-node Kubernetes cluster
+  - The Kubernetes CLI (kubectl) for cluster management
+  - Helm for package management
+  - A complete monitoring stack with Prometheus and Grafana
 
 You can now:
-1. Deploy applications to your cluster
-2. Monitor cluster and application metrics
-3. Set up alerts based on metrics
-4. Explore Grafana dashboards for visualization
+  1. Deploy applications to your cluster
+  2. Monitor cluster and application metrics
+  3. Set up alerts based on metrics
+  4. Explore Grafana dashboards for visualization
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **Podman service not running**
-   - Check Podman socket status: `sudo systemctl status podman.socket`
-   - Start Podman if stopped: `sudo systemctl start podman.socket`
-   - Verify Podman is working: `podman ps`
+  Check Podman socket status: `sudo systemctl status podman.socket`
+  Start Podman if stopped: `sudo systemctl start podman.socket`
+  Verify Podman is working: `podman ps`
 
 2. **Permission issues**
-   - Check subuid/subgid mappings: `grep $USER /etc/subuid /etc/subgid`
-   - Verify Podman socket permissions: `ls -l /run/podman/podman.sock`
-   - Ensure your user is in the podman group: `groups $USER`
-   - Run: `podman system migrate` to update container storage
+  Check subuid/subgid mappings: `grep $USER /etc/subuid /etc/subgid`
+  Verify Podman socket permissions: `ls -l /run/podman/podman.sock`
+  Ensure your user is in the podman group: `groups $USER`
+  Run: `podman system migrate` to update container storage
 
 3. **Port conflicts**
-   - Check if port 80 is in use: `sudo netstat -tulpn | grep :80`
-   - Ensure no other web servers are running on port 80
-   - You may need root privileges to bind to port 80
+  Check if port 80 is in use: `sudo netstat -tulpn | grep :80`
+  Ensure no other web servers are running on port 80
+  You may need root privileges to bind to port 80
 
 4. **Resource constraints**
-   - Check available resources: `free -h` and `nproc`
-   - Close unnecessary applications
-   - Consider adding swap space if needed
-   - Verify cgroup settings: `cat /proc/cmdline | grep cgroup`
+  Check available resources: `free -h` and `nproc`
+  Close unnecessary applications
+  Consider adding swap space if needed
+  Verify cgroup settings: `cat /proc/cmdline | grep cgroup`
 
 5. **Repository issues**
-   - Refresh repositories: `sudo zypper refresh`
-   - Check for repository errors: `sudo zypper repos -u`
-   - Verify network connectivity to repository URLs
+   Refresh repositories: `sudo zypper refresh`
+   Check for repository errors: `sudo zypper repos -u`
+   Verify network connectivity to repository URLs
