@@ -287,16 +287,18 @@ kind delete cluster --name monitoring
 ## Next Steps
 
 With this setup, you now have:
-  - A local multi-node Kubernetes cluster
-  - The Kubernetes CLI (kubectl) for cluster management
-  - Helm for package management
-  - A complete monitoring stack with Prometheus and Grafana
+
+- A local multi-node Kubernetes cluster
+- The Kubernetes CLI (kubectl) for cluster management
+- Helm for package management
+- A complete monitoring stack with Prometheus and Grafana
 
 You can now:
-  1. Deploy applications to your cluster
-  2. Monitor cluster and application metrics
-  3. Set up alerts based on metrics
-  4. Explore Grafana dashboards for visualization
+
+1. Deploy applications to your cluster
+2. Monitor cluster and application metrics
+3. Set up alerts based on metrics
+4. Explore Grafana dashboards for visualization
 
 ## Troubleshooting
 
