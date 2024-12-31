@@ -24,7 +24,7 @@ markdown_extensions:
         - name: plantuml
           class: plantuml
           format: "fence_code_format"
-  - pymdownx.snippets
+
 
 nav:
   - Home: index.md
