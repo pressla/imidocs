@@ -22,23 +22,23 @@ This guide is specifically for openSUSE Linux distributions. Ensure you have:
 Podman is the officially supported container engine in SUSE/openSUSE:
 
 1. Install Podman and required tools:
-```bash
+```bash copy
 sudo zypper install podman podman-docker cni-plugins
 ```
 
 2. Enable and start Podman socket (for Docker API compatibility):
-```bash
+```bash copy
 sudo systemctl enable --now podman.socket
 ```
 
 3. Configure Podman for rootless mode:
-```bash
+```bash copy
 sudo touch /etc/subuid /etc/subgid
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USER
 ```
 
 4. Set up Docker compatibility:
-```bash
+```bash copy
 # Create Docker compatibility symlink
 sudo ln -sf /run/podman/podman.sock /var/run/docker.sock
 
@@ -47,7 +47,7 @@ sudo usermod -aG podman $USER
 ```
 
 5. Log out and back in for group changes to take effect, then verify:
-```bash
+```bash copy
 podman --version
 podman ps
 ```
@@ -58,7 +58,7 @@ Note: The `docker` command will also work due to the podman-docker compatibility
 
 Kind (Kubernetes in Docker) allows running local Kubernetes clusters using Docker containers as nodes.
 
-```bash
+```bash copy
 # Download Kind binary
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
 chmod +x ./kind
@@ -72,7 +72,7 @@ kind --version
 
 Install kubectl using the official Kubernetes repository:
 
-```bash
+```bash copy
 # Add Kubernetes repository
 sudo zypper addrepo --refresh https://download.opensuse.org/repositories/containers:/kubetools/15.5/containers:kubetools.repo
 
@@ -87,7 +87,7 @@ kubectl version --client
 
 Install Helm using the openSUSE package manager:
 
-```bash
+```bash copy
 # Add Helm repository
 sudo zypper addrepo https://download.opensuse.org/repositories/home:tlusk:kubectl/15.6/home:tlusk:kubectl.repo
 
@@ -102,7 +102,7 @@ helm version
 ## Creating a Kind Cluster
 
 1. Create a cluster configuration file `kind-config.yaml`:
-```yaml
+```yaml copy
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -116,12 +116,12 @@ nodes:
 ```
 
 2. Create the cluster:
-```bash
+```bash copy
 kind create cluster --name monitoring --config kind-config.yaml
 ```
 
 3. Verify cluster is running:
-```bash
+```bash copy
 kubectl cluster-info
 ```
 
@@ -130,19 +130,19 @@ kubectl cluster-info
 We'll set up a complete monitoring solution with Prometheus, Grafana, and Loki using Helm charts.
 
 1. Create monitoring namespace:
-```bash
+```bash copy
 kubectl create namespace monitoring
 ```
 
 2. Add required Helm repositories:
-```bash
+```bash copy
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 ```
 
 3. Install Prometheus stack:
-```bash
+```bash copy
 helm install prometheus prometheus-community/kube-prometheus-stack \
   --namespace monitoring \
   --set grafana.enabled=true \
@@ -159,7 +159,7 @@ EOF
 ```
 
 4. Install Loki stack:
-```bash
+```bash copy
 helm install loki grafana/loki-stack \
   --namespace monitoring \
   --set grafana.enabled=false \
@@ -168,14 +168,14 @@ helm install loki grafana/loki-stack \
 ```
 
 5. Verify installations:
-```bash
+```bash copy
 kubectl get pods -n monitoring
 ```
 
 ## Setting up Nginx Reverse Proxy
 
 Create a file named `nginx-proxy.yaml`:
-```yaml
+```yaml copy
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -252,14 +252,14 @@ spec:
 ```
 
 Apply the configuration:
-```bash
+```bash copy
 kubectl apply -f nginx-proxy.yaml
 ```
 
 ## Accessing the Dashboards
 
 Get the Grafana admin password (if you didn't set it in the values):
-```bash
+```bash copy
 kubectl get secret -n monitoring prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
 ```
 
@@ -279,7 +279,7 @@ Configure Loki as a data source in Grafana:
 ## Cleaning Up
 
 To delete the Kind cluster:
-```bash
+```bash copy
 kind delete cluster --name monitoring
 ```
 
