@@ -1,0 +1,21 @@
+#  Markdown cheatsheet
+
+| **Feature**               | **Markdown Syntax**                                                                                  | **Rendered Output Example**                                                                 |
+|---------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| **Headers**               | `# Header 1` <br> `## Header 2` <br> `### Header 3`                                                 | # Header 1 <br> ## Header 2 <br> ### Header 3                                              |
+| **Bold**                  | `**Bold Text**`                                                                                     | **Bold Text**                                                                              |
+| **Italic**                | `*Italic Text*`                                                                                     | *Italic Text*                                                                              |
+| **Bold & Italic**         | `***Bold & Italic***`                                                                               | ***Bold & Italic***                                                                        |
+| **Blockquote**            | `> Blockquote`                                                                                      | > Blockquote                                                                               |
+| **Lists**                 | `- Item 1` <br> `- Item 2` <br> `  - Sub-item 2.1`                                                  | - Item 1 <br> - Item 2 <br> &nbsp;&nbsp;- Sub-item 2.1                                     |
+| **Numbered Lists**        | `1. Item 1` <br> `2. Item 2`                                                                        | 1. Item 1 <br> 2. Item 2                                                                   |
+| **Code (Inline)**         | `` `inline code` ``                                                                                 | `inline code`                                                                              |
+| **Code Block**            | <code> ```yaml<br>key: value<br>```</code>                                                          | ```yaml<br>key: value<br>```                                                               |
+| **Links**                 | `[Link Text](https://example.com)`                                                                  | [Link Text](https://example.com)                                                          |
+| **Images**                | `![Alt Text](https://example.com/image.png)`                                                        | ![Alt Text](https://example.com/image.png)                                                |
+| **Horizontal Rule**       | `---`                                                                                               | ---                                                                                       |
+| **Footnotes**             | `Text with footnote[^1]` <br> `[^1]: Footnote content`                                              | Text with footnote¹ <br> ¹ Footnote content                                               |
+| **Tables**                | `| Column 1 | Column 2 |` <br> `|----------|----------|` <br> `| Data 1   | Data 2   |`                   | See below for rendered example                                                            |
+| **Task Lists**            | `- [ ] Task 1` <br> `- [x] Completed Task`                                                         | - [ ] Task 1 <br> - [x] Completed Task                                                    |
+| **Admonitions**           | `!!! note` <br> `    This is a note.`                                                               | See below for rendered example                                                            |
+| **Code Tabs (Tabs)**      | `{% tabs %}` <br> `{% tab "Tab 1" %}` <br> `Content for Tab 1` <br> `{% endtab %}` <br> `{% endtabs %}` | Tabs (specific to MkDocs Material configuration)                                          |

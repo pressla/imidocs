@@ -5,6 +5,7 @@ theme:
   features:
     - content.code.copy
 markdown_extensions:
+  - footnotes
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
