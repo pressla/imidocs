@@ -8,8 +8,7 @@ theme:
 markdown_extensions:
   - footnotes
   - attr_list
-  - def_list   
-  - md_in_html
+  - admonition
   - pymdownx.blocks.caption
   - pymdownx.inlinehilite
   - pymdownx.snippets
