@@ -2,18 +2,23 @@ site_name: imitrix docs
 site_url: https://imitrix.de/docs
 theme:
   name: material
+  features:
+    - content.code.copy
 markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+          format: "fence_code_format"
         - name: plantuml
           class: plantuml
-          format: !!python/name:pymdownx.superfences.fence_code_format
+          format: "fence_code_format"
+  - pymdownx.snippets
 
 nav:
   - Home: index.md

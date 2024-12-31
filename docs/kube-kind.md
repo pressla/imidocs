@@ -22,23 +22,23 @@ This guide is specifically for openSUSE Linux distributions. Ensure you have:
 Podman is the officially supported container engine in SUSE/openSUSE:
 
 1. Install Podman and required tools:
-```bash copy
+```bash
 sudo zypper install podman podman-docker cni-plugins
 ```
 
 2. Enable and start Podman socket (for Docker API compatibility):
-```bash copy
+```bash
 sudo systemctl enable --now podman.socket
 ```
 
 3. Configure Podman for rootless mode:
-```bash copy
+```bash
 sudo touch /etc/subuid /etc/subgid
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USER
 ```
 
 4. Set up Docker compatibility:
-```bash copy
+```bash
 # Create Docker compatibility symlink
 sudo ln -sf /run/podman/podman.sock /var/run/docker.sock
 
@@ -47,7 +47,7 @@ sudo usermod -aG podman $USER
 ```
 
 5. Log out and back in for group changes to take effect, then verify:
-```bash copy
+```bash
 podman --version
 podman ps
 ```
@@ -58,7 +58,7 @@ Note: The `docker` command will also work due to the podman-docker compatibility
 
 Kind (Kubernetes in Docker) allows running local Kubernetes clusters using Docker containers as nodes.
 
-```bash copy
+```bash
 # Download Kind binary
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
 chmod +x ./kind
@@ -102,7 +102,7 @@ helm version
 ## Creating a Kind Cluster
 
 1. Create a cluster configuration file `kind-config.yaml`:
-```yaml copy
+```yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -175,7 +175,7 @@ kubectl get pods -n monitoring
 ## Setting up Nginx Reverse Proxy
 
 Create a file named `nginx-proxy.yaml`:
-```yaml copy
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
