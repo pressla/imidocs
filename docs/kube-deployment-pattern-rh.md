@@ -17,7 +17,7 @@ The Kubernetes Deployment resource abstracts the complexities of managing upgrad
 Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
 { .annotate }
 
-1.  :man_raising_hand: I'm an annotation! I can contain `code`, __formatted
+1.  I'm an annotation! I can contain `code`, __formatted
     text__, images, ... basically anything that can be expressed in Markdown.
 
 ```yaml hl_lines="6 10"
@@ -26,7 +26,7 @@ kind: Deployment
 metadata:
   name: rolling-deployment
 spec:
-  replicas: 3 (1)
+  replicas: 3 # (1)
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -47,7 +47,8 @@ spec:
           exec:
             command: ["stat", "/tmp/app-ready"]
 ```
-1.  :man_raising_hand: Declaration of three replicas. You need more than one replica for a rolling update to make sense.
+{ .annotate }
+1.  Declaration of three replicas. You need more than one replica for a rolling update to make sense.
 2.  Number of Pods that can be run temporarily in addition to the replicas specified during an update. In this example, it could be a maximum of four replicas.
 3.  Number of Pods that may be unavailable during the update. Here it could be that only two Pods are available at a time during the update.
 4.  Duration in seconds of all readiness probes for a rolled-out Pod needs to be healthy until the rollout continues.
