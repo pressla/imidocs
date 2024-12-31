@@ -9,10 +9,16 @@ As the number of microservices grows, the manual process of upgrading servicesâ€
 ### Solution
 The Kubernetes Deployment resource abstracts the complexities of managing upgrades and rollbacks of container groups. By defining the desired state, Kubernetes performs necessary actions to ensure the system conforms to that state. Deployment strategies supported include:
 
-#### Rolling Deployment
-The default strategy that updates Pods incrementally to ensure zero downtime. It creates new Pods while progressively replacing old ones, adhering to parameters like `maxSurge` (temporary additional Pods) and `maxUnavailable` (maximum Pods unavailable during updates).
+!!! note annotate "Rolling Deployment"
+    The default strategy that updates Pods incrementally to ensure zero downtime. It creates new Pods while progressively replacing old ones, adhering to parameters like `maxSurge` (temporary additional Pods) and `maxUnavailable` (maximum Pods unavailable during updates).
 
-*Example configuration: (1)*
+*Example configuration:*
+
+Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
+{ .annotate }
+
+1.  :man_raising_hand: I'm an annotation! I can contain `code`, __formatted
+    text__, images, ... basically anything that can be expressed in Markdown.
 
 ```yaml hl_lines="6 10"
 apiVersion: apps/v1
