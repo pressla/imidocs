@@ -125,6 +125,7 @@ kind create cluster --name monitoring --config kind-config.yaml
 kubectl cluster-info
 ```
 
+
 ## Installing Monitoring Stack
 
 We'll set up a complete monitoring solution with Prometheus, Grafana, and Loki using Helm charts.
