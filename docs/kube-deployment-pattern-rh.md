@@ -1,15 +1,17 @@
-# Kubernetes Deployment Patterns
-
-## Chapter 3: Declarative Deployment
+# Kubernetes Deployment Patterns 
+[^1]: Kubernetes Patterns Reusable Elements for Designing
+Cloud Native Applications
+##  Declarative Deployment
 
 ### Problem
-As the number of microservices grows, the manual process of upgrading services—including starting the new Pod version, gracefully stopping the old one, verifying successful launches, and rolling back if necessary—becomes burdensome. Manual steps can lead to human errors, and scripting them requires significant effort. Kubernetes addresses this challenge with the **Deployment** resource, which automates application upgrades and makes them repeatable and efficient【13:0†source】【13:6†source】.
+As the number of microservices grows, the manual process of upgrading services—including starting the new Pod version, gracefully stopping the old one, verifying successful launches, and rolling back if necessary—becomes burdensome. Manual steps can lead to human errors, and scripting them requires significant effort. Kubernetes addresses this challenge with the **Deployment** resource, which automates application upgrades and makes them repeatable and efficient [*chapter 3*]
 
 ### Solution
 The Kubernetes Deployment resource abstracts the complexities of managing upgrades and rollbacks of container groups. By defining the desired state, Kubernetes performs necessary actions to ensure the system conforms to that state. Deployment strategies supported include:
 
 #### Rolling Deployment
-The default strategy that updates Pods incrementally to ensure zero downtime. It creates new Pods while progressively replacing old ones, adhering to parameters like `maxSurge` (temporary additional Pods) and `maxUnavailable` (maximum Pods unavailable during updates). 
+The default strategy that updates Pods incrementally to ensure zero downtime. It creates new Pods while progressively replacing old ones, adhering to parameters like `maxSurge` (temporary additional Pods) and `maxUnavailable` (maximum Pods unavailable during updates).
+
 *Example configuration:*
 
 ```yaml hl_lines="6 10"
@@ -50,21 +52,21 @@ spec:
 ![Rolling deployment strategy](img/f3-1.png)
 
 #### Recreate Deployment
-This strategy stops all existing Pods before starting new ones, ensuring no overlap but introducing downtime【13:9†source】.
+This strategy stops all existing Pods before starting new ones, ensuring no overlap but introducing downtime.
 
 *Figure 3-2. Fixed deployment using a Recreate strategy.*
 
 ![Fixed deployment using a Recreate strategy](img/f3-2.png)
 
 #### Blue-Green Deployment
-This strategy minimizes downtime by deploying a new version in parallel with the existing one. Once verified, traffic switches to the new version by updating the Service selector. Resources for the old version can then be released【13:1†source】【13:6†source】.
+This strategy minimizes downtime by deploying a new version in parallel with the existing one. Once verified, traffic switches to the new version by updating the Service selector. Resources for the old version can then be released.
 
 *Figure 3-3. Blue-Green release.*
 
 ![Blue-Green release](img/f3-3.png)
 
 #### Canary Release
-This approach gradually introduces a new version to a subset of users. If successful, it replaces the old version entirely. It involves managing two Deployments and adjusting traffic split using service mesh or ingress controllers【13:6†source】.
+This approach gradually introduces a new version to a subset of users. If successful, it replaces the old version entirely. It involves managing two Deployments and adjusting traffic split using service mesh or ingress controllers
 
 *Figure 3-4. Canary release.*
 
@@ -73,19 +75,19 @@ This approach gradually introduces a new version to a subset of users. If succes
 ### Advanced Deployment Strategies
 
 #### Pre- and Post-Deployment Hooks
-These hooks were proposed to allow custom commands during deployments but are not fully implemented in Kubernetes. Current alternatives include higher-level abstractions using operators【13:0†source】.
+These hooks were proposed to allow custom commands during deployments but are not fully implemented in Kubernetes. Current alternatives include higher-level abstractions using operators.
 
 #### Higher-Level Platforms
-Platforms like Flagger (part of Flux CD), Argo Rollouts, and Knative provide advanced deployment strategies, integrating canary and blue-green mechanisms while supporting traffic splitting and rollbacks【13:5†source】.
+Platforms like Flagger (part of Flux CD), Argo Rollouts, and Knative provide advanced deployment strategies, integrating canary and blue-green mechanisms while supporting traffic splitting and rollbacks.
 
 ### Benefits of Declarative Deployment
 - **Automation**: Reduces manual intervention and human error.
 - **Repeatability**: Ensures consistent results across environments.
 - **Observability**: Provides monitoring capabilities and rollback mechanisms.
-- **Declarative Nature**: Focuses on desired state rather than procedural steps【13:0†source】.
+- **Declarative Nature**: Focuses on desired state rather than procedural steps.
 
 ### Conclusion
-Kubernetes’ Deployment abstraction simplifies service upgrades, balancing downtime, resource utilization, and operational risks. Advanced tools further enhance its capabilities, making it suitable for modern, scalable application environments【13:6†source】.
+Kubernetes’ Deployment abstraction simplifies service upgrades, balancing downtime, resource utilization, and operational risks. Advanced tools further enhance its capabilities, making it suitable for modern, scalable application environments.
 
 *Figure 3-5. Deployment and release strategies.*
 
