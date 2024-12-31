@@ -1,0 +1,21 @@
+NAME                                                    READY   STATUS      RESTARTS      AGE
+cloud-controller-manager-winkelstore                    1/1     Running     0             19m
+etcd-winkelstore                                        1/1     Running     0             19m
+helm-install-rke2-canal-frw8n                           0/1     Completed   0             89m
+helm-install-rke2-coredns-8d5dw                         0/1     Completed   0             89m
+helm-install-rke2-ingress-nginx-c97kn                   0/1     Completed   0             89m
+helm-install-rke2-metrics-server-v4lkr                  0/1     Completed   0             89m
+helm-install-rke2-snapshot-controller-crd-2hjhl         0/1     Completed   0             89m
+helm-install-rke2-snapshot-controller-r5h27             0/1     Completed   1             89m
+helm-install-rke2-snapshot-validation-webhook-8vrvx     0/1     Completed   0             89m
+kube-apiserver-winkelstore                              1/1     Running     0             19m
+kube-controller-manager-winkelstore                     1/1     Running     0             19m
+kube-proxy-winkelstore                                  1/1     Running     0             17m
+kube-scheduler-winkelstore                              1/1     Running     0             19m
+rke2-canal-m82hd                                        2/2     Running     1 (82m ago)   88m
+rke2-coredns-rke2-coredns-55bdf87668-v92gv              1/1     Running     0             88m
+rke2-coredns-rke2-coredns-autoscaler-65c8c6bd64-cllx6   1/1     Running     0             88m
+rke2-ingress-nginx-controller-djzpp                     0/1     Running     0             38s
+rke2-metrics-server-7c85d458bd-tx6mq                    1/1     Running     0             56s
+rke2-snapshot-controller-65bc6fbd57-6sv8q               1/1     Running     0             55s
+rke2-snapshot-validation-webhook-859c7896df-8ks8m       1/1     Running     0             56s

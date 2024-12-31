@@ -2,15 +2,17 @@
 
 | Resource | Link |
 |----------|------|
+|OpenSuse Hauptseite|[opensuse.org](https://de.opensuse.org/Hauptseite)|
 | SUSE Container Guide | [documentation.suse.com/container](https://documentation.suse.com/container/all/html/Container-guide/index.html) |
 | SUSE Container Registry | [registry.suse.com](https://registry.suse.com/repositories?categories%5B%5D=apps) |
+| openSUSE Leap 15.6 | [build.opensuse.org](https://build.opensuse.org/project/show/openSUSE:Leap:15.6) |
 
 This guide walks through setting up a complete local Kubernetes development environment using Kind (Kubernetes in Docker), along with essential tools and monitoring.
 
 ## Prerequisites
 
 This guide is specifically for openSUSE Linux distributions. Ensure you have:
-- openSUSE Leap 15.4 or newer
+- openSUSE Leap 15.6 or newer
 - Root/sudo access
 - Terminal access
 - At least 8GB RAM and 4 CPU cores recommended
@@ -72,7 +74,7 @@ Install kubectl using the official Kubernetes repository:
 
 ```bash
 # Add Kubernetes repository
-sudo zypper addrepo --refresh https://download.opensuse.org/repositories/containers:/kubetools/openSUSE_Leap_15.4/containers:kubetools.repo
+sudo zypper addrepo --refresh https://download.opensuse.org/repositories/containers:/kubetools/15.5/containers:kubetools.repo
 
 # Install kubectl
 sudo zypper install kubernetes-client
@@ -87,9 +89,10 @@ Install Helm using the openSUSE package manager:
 
 ```bash
 # Add Helm repository
-sudo zypper addrepo --refresh https://download.opensuse.org/repositories/containers:/helm/openSUSE_Leap_15.4/containers:helm.repo
+sudo zypper addrepo https://download.opensuse.org/repositories/home:tlusk:kubectl/15.6/home:tlusk:kubectl.repo
 
 # Install Helm
+sudo zypper refresh
 sudo zypper install helm
 
 # Verify installation
