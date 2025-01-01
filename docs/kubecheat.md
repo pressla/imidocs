@@ -2,6 +2,7 @@
 
 | Command | Description | Example |
 |---------|-------------|---------|
+| `kubectl get all -n <namespace>` | Lists all resources in a namespace (omit -n for current namespace) | `kubectl get all -n default` |
 | `kubectl get services -n <namespace>` | Lists services in a namespace (omit -n for current namespace) | `kubectl get services -n kube-system` |
 | `kubectl get namespaces` | Lists all namespaces in the cluster | `kubectl get namespaces` |
 | `kubectl get pods -n <namespace>` | Lists pods in a namespace (omit -n for current namespace) | `kubectl get pods -n default` |
