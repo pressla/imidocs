@@ -24,9 +24,7 @@ markdown_extensions:
       smart_enable: all
   - pymdownx.caret
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.emoji
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
@@ -44,3 +42,28 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Kubernetes Patterns:
+    - Behavioral Patterns Intro: kube-behavioral-patterns-intro.md
+    - Patterns Part 3: kube-patterns-part3.md
+  - Kubernetes Core:
+    - Chapter 3 - Deployments: kube-deployment-ch3.md
+    - Chapter 4: kube-chap-4.md
+    - Chapter 5: kube-chap-5.md
+    - Chapter 6: kube-chap-6.md
+    - Application: kube-app.md
+  - Kubernetes Services:
+    - Daemon Service: kube-daemon-service.md
+    - Batch Job: kube-batch-job.md
+    - Periodic Job: kube-periodic-job.md
+  - Infrastructure:
+    - Kind Setup: kube-kind.md
+    - RKE2 Deployment: rke2-deployment.md
+  - Monitoring:
+    - Loki: kube-loki.md
+  - Tools & References:
+    - Kubernetes Cheatsheet: kubecheat.md
+    - MkDocs Cheatsheet: mkdocscheat.md
+    - Vim Commands: vim-commands.md
+  - Other:
+    - 30-100: 30-100.md
+    - Streamlit Guide: streamlit-guide.md
