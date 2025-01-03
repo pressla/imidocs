@@ -32,7 +32,7 @@ This document describes the default deployment of RKE2 components in the `kube-s
 
 ## Deployment Diagram
 
-```plantuml
+```kroki-plantuml
 
 @startuml
 !define RECTANGLE class
