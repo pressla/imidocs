@@ -4,7 +4,16 @@ theme:
   name: material
   features:
     - content.code.copy
-    - content.code.annotate    
+    - content.code.annotate  
+
+plugins:
+  - search
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+      num_workers: 8
+  - kroki:
+      enabled: true
+
 markdown_extensions:
 
   # Python Markdown
@@ -38,7 +47,8 @@ markdown_extensions:
         - name: plantuml
           class: plantuml
           format: "fence_code_format"
-
+  - plantuml_markdown:
+      server: https://www.plantuml.com/plantuml
 
 nav:
   - Home: index.md
