@@ -6,13 +6,6 @@ theme:
     - content.code.copy
     - content.code.annotate  
 
-plugins:
-  - search
-  - plantuml:
-      puml_url: https://www.plantuml.com/plantuml/
-      num_workers: 8
-  - kroki:
-      enabled: true
 
 markdown_extensions:
 
@@ -74,6 +67,9 @@ nav:
     - Kubernetes Cheatsheet: kubecheat.md
     - MkDocs Cheatsheet: mkdocscheat.md
     - Vim Commands: vim-commands.md
+    - Windows Disk Management: windows-disk-management.md
+    - OpenSUSE Disk Management: opensuse-disk-management.md
+    - OpenSUSE USB Devices: opensuse-usb-devices.md
   - Other:
     - 30-100: 30-100.md
     - Streamlit Guide: streamlit-guide.md
