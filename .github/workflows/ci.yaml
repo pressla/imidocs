@@ -21,12 +21,6 @@ jobs:
         with:
           python-version: 3.x
       
-      - name: Install Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-      
       - name: Cache dependencies
         run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       
@@ -45,7 +39,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install mkdocs-material
-          pip install mkdocs-plantuml-plugin
+          pip install mkdocs-puml
           pip install mkdocs-kroki-plugin
 
       - name: Deploy MkDocs

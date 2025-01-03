@@ -6,6 +6,8 @@ theme:
     - content.code.copy
     - content.code.annotate  
 
+plugins:
+  - kroki:
 
 markdown_extensions:
 
