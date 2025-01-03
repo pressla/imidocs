@@ -72,6 +72,7 @@ nav:
     - Windows Disk Management: windows-disk-management.md
     - OpenSUSE Disk Management: opensuse-disk-management.md
     - OpenSUSE USB Devices: opensuse-usb-devices.md
+    - WSL2 Linux Mint Setup: wsl2-linux-mint.md
   - Other:
     - 30-100: 30-100.md
     - Streamlit Guide: streamlit-guide.md
