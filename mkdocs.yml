@@ -63,6 +63,7 @@ nav:
   - Infrastructure:
     - Kind Setup: kube-kind.md
     - RKE2 Deployment: rke2-deployment.md
+    - Ansible on RKE2: ansible-rke2.md
   - Monitoring:
     - Loki: kube-loki.md
   - Tools & References:
