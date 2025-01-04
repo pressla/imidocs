@@ -34,7 +34,7 @@ Harbor is an open source registry that secures artifacts with policies and role-
 
 ## Architecture Overview
 
-```plantuml
+```kroki-plantuml
 @startuml
 
 rectangle "Kubernetes Cluster" {
