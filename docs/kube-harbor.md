@@ -36,13 +36,6 @@ Harbor is an open source registry that secures artifacts with policies and role-
 
 ```plantuml
 @startuml
-!define RECTANGLE class
-
-skinparam componentStyle uml2
-skinparam component {
-  BorderColor #2C3E50
-  BackgroundColor #ECF0F1
-}
 
 rectangle "Kubernetes Cluster" {
   component "Ingress Controller" as ingress
@@ -71,6 +64,20 @@ core --> redis
 registry --> storage
 core --> trivy
 
+note right of storage
+  Configurable backend:
+  - FileSystem
+  - S3
+  - Azure
+  - GCS
+end note
+
+note right of core
+  Handles:
+  - Authentication
+  - Authorization
+  - Project Management
+end note
 
 @enduml
 ```
