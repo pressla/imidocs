@@ -54,7 +54,6 @@ rectangle "Kubernetes Cluster" {
     database "Database" as db
     component "Redis" as redis
     component "Trivy" as trivy
-    
     storage "Storage Backend" as storage
   }
 }
@@ -72,20 +71,6 @@ core --> redis
 registry --> storage
 core --> trivy
 
-note right of storage
-  Configurable backend:
-  - FileSystem
-  - S3
-  - Azure
-  - GCS
-end note
-
-note right of core
-  Handles:
-  - Authentication
-  - Authorization
-  - Project Management
-end note
 
 @enduml
 ```
