@@ -1,6 +1,55 @@
 # RKE2 Default Deployment
 rke2 version v1.31.4+rke2r1
 30.12.2024
+
+[RKE2 Quickstart](https://docs.rke2.io/install/quickstart)
+
+kubeconfig env vaiable required to target kubectl to the file:
+```bash
+export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+kubectl get pods --all-namespaces
+helm ls --all-namespaces
+```
+cleanup_completed.sh:
+```bash
+#!/bin/bash
+
+# List all namespaces
+namespaces=$(kubectl get namespaces -o jsonpath="{.items[*].metadata.name}")
+
+# Loop through each namespace and delete completed pods
+for ns in $namespaces; do
+    echo "Cleaning up completed pods in namespace: $ns"
+    kubectl delete pod --namespace=$ns --field-selector=status.phase=Succeeded
+done
+
+```
+or
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cleanup-completed-pods
+  namespace: kube-system
+spec:
+  schedule: "0 0 * * *"  # Run daily at midnight
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: kubectl
+            image: bitnami/kubectl
+            command:
+            - /bin/sh
+            - -c
+            - |
+              kubectl delete pod --all-namespaces --field-selector=status.phase=Succeeded
+          restartPolicy: OnFailure
+
+```
+
+
 This document describes the default deployment of RKE2 components in the `kube-system` namespace.
 
 ## Core Components
