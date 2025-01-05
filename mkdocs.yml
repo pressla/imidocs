@@ -65,6 +65,7 @@ nav:
     - RKE2 Deployment: rke2-deployment.md
     - Ansible on RKE2: ansible-rke2.md
     - Harbor Registry: kube-harbor.md
+    - Portworx Storage: kube-portworkx.md
   - Monitoring:
     - Loki: kube-loki.md
   - Tools & References:
