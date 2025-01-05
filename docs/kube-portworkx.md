@@ -20,7 +20,7 @@ kubectl apply -f px-spec.yaml
 
 ## Deployment Architecture
 
-```plantuml
+```kroki-plantuml
 @startuml
 !define RECTANGLE class
 
