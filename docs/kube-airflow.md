@@ -349,13 +349,7 @@ spec:
                   number: 8080
 ```
 
-Apply the ingress configuration:
-
-```bash
-kubectl apply -f airflow-ingress.yaml
-```
-
-After the ingress is configured, you can access the Airflow web interface at `http://airflow.example.com/airflow`. Login with the default credentials:
+The ingress configuration is included in the combined manifest. After applying the manifest and once the ingress controller is properly configured, you can access the Airflow web interface at `http://airflow.example.com/airflow`. Login with the default credentials:
 - Username: admin
 - Password: admin
 
