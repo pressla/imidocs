@@ -190,18 +190,7 @@ webserver --> dagspv : "Read DAGs"
 scheduler --> dagspv : "Read DAGs"
 workers --> dagspv : "Read DAGs"
 
-note right of workers
-  Kubernetes Executor dynamically creates
-  worker pods for each task execution.
-  Pods are ephemeral and removed after
-  task completion.
-end note
 
-note right of pvs
-  Persistent volumes provide durable
-  storage for database and DAG files
-  across all pods
-end note
 @enduml
 ```
 
