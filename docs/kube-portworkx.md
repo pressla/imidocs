@@ -6,13 +6,17 @@ This guide provides instructions for deploying Portworx on SUSE Leap 15.5 with R
 
 ```bash
 # Install required packages
+export KUBECTL_SERVER_VERSION=$(kubectl version -oyaml | grep serverVersion: -A5 | grep gitVersion: | awk '{print $2}' | sed 's/+.*//')
+
+kubectl apply -f "https://install.portworx.com/3.2?comp=pxoperator&kbver=$KUBECTL_SERVER_VERSION&ns=portworx"
+
 zypper install -y docker python3-pip
 
 # Start and enable docker service
 systemctl enable --now docker
 
 # Download Portworx Spec Generator
-curl -o px-spec.yaml "https://install.portworx.com/2.13?mc=false&kbver=v1.28.2&b=true&c=px-cluster-1&stork=true&csi=true&pxOperator=true&ns=portworx&osft=true&type=oci&ociPassphrase=&ociUsername=&ociSecret=&ociSecretNamespace=&ociEndpoint=&st=k8s&promop=true"
+curl -o px-spec.yaml "https://install.portworx.com/3.2?operator=true&mc=false&kbver=$KUBECTL_SERVER_VERSION&ns=portworx&b=true&iop=6&r=17001&c=px-cluster-d7b5a3e7-93c6-4fb5-9bed-3623c2df15c5&osft=true&stork=true&csi=true&tel=true&st=k8s"
 
 # Apply the spec
 kubectl apply -f px-spec.yaml

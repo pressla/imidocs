@@ -66,6 +66,7 @@ nav:
     - Ansible on RKE2: ansible-rke2.md
     - Harbor Registry: kube-harbor.md
     - Portworx Storage: kube-portworkx.md
+    - Airflow: kube-airflow.md
   - Monitoring:
     - Loki: kube-loki.md
   - Tools & References:
