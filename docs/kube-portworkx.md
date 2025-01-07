@@ -133,3 +133,4 @@ kubectl get sc
 # Check Portworx status
 PX_POD=$(kubectl get pods -l name=portworx -n portworx -o jsonpath='{.items[0].metadata.name}')
 kubectl exec -n portworx $PX_POD -- /opt/pwx/bin/pxctl status
+```
