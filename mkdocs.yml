@@ -60,6 +60,7 @@ nav:
     - Daemon Service: kube-daemon-service.md
     - Batch Job: kube-batch-job.md
     - Periodic Job: kube-periodic-job.md
+    - Ingress: kube-ingress.md
   - Infrastructure:
     - Kind Setup: kube-kind.md
     - RKE2 Deployment: rke2-deployment.md
