@@ -7,9 +7,11 @@ theme:
     - content.code.annotate  
 
 plugins:
+  - search
   - kroki:
-  - plantuml:
-      puml_url: https://www.plantuml.com/plantuml/
+      PlantUML:
+        server: 'https://kroki.io'
+  - print-site
 markdown_extensions:
 
   # Python Markdown
@@ -64,6 +66,7 @@ nav:
   - Infrastructure:
     - Kind Setup: kube-kind.md
     - RKE2 Deployment: rke2-deployment.md
+    - Open Source K8s Stack: kube-deployment-opensource.md
     - Ansible on RKE2: ansible-rke2.md
     - Harbor Registry: kube-harbor.md
     - Portworx Storage: kube-portworkx.md

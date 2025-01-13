@@ -41,6 +41,7 @@ jobs:
           pip install mkdocs-material
           pip install mkdocs-puml
           pip install mkdocs-kroki-plugin
+          pip install mkdocs-print-site-plugin
 
       - name: Deploy MkDocs
         run: mkdocs gh-deploy --force
