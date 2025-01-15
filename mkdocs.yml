@@ -66,6 +66,7 @@ nav:
   - Infrastructure:
     - Kind Setup: kube-kind.md
     - RKE2 Deployment: rke2-deployment.md
+    - Traefik on RKE2: kube-traefik.md
     - Open Source K8s Stack: kube-deployment-opensource.md
     - Ansible on RKE2: ansible-rke2.md
     - Harbor Registry: kube-harbor.md
